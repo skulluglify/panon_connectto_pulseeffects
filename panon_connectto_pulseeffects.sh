@@ -9,9 +9,11 @@ function check_binaries () {
 
 check_binaries pacmd
 check_binaries pulseeffects
+check_binaries pulseaudio
+##? .local/share/plasma/plasmoids/panon
 
 function get_panon_index () {
-	echo `pacmd list-source-outputs | grep -iB18 'application.name = "panon"' | head -n 1 | awk '{print $2}'`
+    echo `pacmd list-source-outputs | grep -iB18 'application.name = "panon"' | head -n 1 | awk '{print $2}'`
 }
 
 MAX_TIMEOUT=60
