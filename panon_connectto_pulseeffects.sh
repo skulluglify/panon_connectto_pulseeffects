@@ -20,6 +20,9 @@ MAX_TIMEOUT=60
 PULSE_ACTIVATE=0
 
 while true; do
+    if [ $MAX_TIMEOUT -eq 0 ]; then
+        break
+    fi
     PANON_INDEX=$(get_panon_index)
     if [ "$PANON_INDEX" ]; then
         if [ $PULSE_ACTIVATE -eq 0 -o -z "$(pgrep pulseeffects)" ]; then
@@ -30,5 +33,6 @@ while true; do
             break
         fi
     fi
+    MAX_TIMEOUT=$(($MAX_TIMEOUT - 1))
     sleep .5
 done
