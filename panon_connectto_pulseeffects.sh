@@ -14,6 +14,9 @@ check_binaries pulseeffects
 check_binaries pulseaudio
 ##? .local/share/plasma/plasmoids/panon
 
+##? DEBUG LOG 
+echo "STARTED INJECTION ..." | tee $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
+
 function get_panon_index () {
 
     echo `pacmd list-source-outputs | grep -iB18 'application.name = "panon"' | head -n 1 | awk '{print $2}'`
@@ -42,11 +45,17 @@ function main () {
         if [ "$PANON_INDEX" ]; then
             if [ $PULSE_EFFECTS_ACTIVATE -eq 0 -o -z "$(pgrep pulseeffects)" ]; then
                 PULSE_EFFECTS_ACTIVATE=1 && pulseeffects &
-                echo "OPEN PulseEffects"
+                ##? DEBUG LOG 
+                echo "OPEN PulseEffects" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
             fi
             # sleep 2
             ERROR_MESSAGE=`pacmd move-source-output $PANON_INDEX PulseEffects_apps.monitor`
-            if [ -z "$(echo $ERROR_MESSAGE | grep -Eiv '(failed to parse|no source found by this name or) index')" ]; then
+            if [ -n "$(echo $ERROR_MESSAGE | grep -Eiv '(failed to parse|no source found by this name or) index')" ]; then
+                ##? DEBUG LOG 
+                echo "FAILED SWITCH AUDIO SOURCE" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
+            else
+                ##? DEBUG LOG 
+                echo "SWITCH AUDIO SOURCE" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
                 break
             fi
         fi
@@ -64,10 +73,14 @@ for x in {1..24}; do
     CHECK_PANON_CONNECTED=$(check_panon_connected_to_pulseeffects)
 
     if [ "$CHECK_PANON_CONNECTED" ]; then
-        echo "CALLBACK $x TIMES"
+        ##? DEBUG LOG 
+        echo "CALLBACK $x TIMES" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
         break
     fi
 
     sleep 1 
     main 
 done
+
+##? DEBUG LOG 
+echo "EXITING INJECTION ..." | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
