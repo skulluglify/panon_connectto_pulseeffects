@@ -1,21 +1,33 @@
-## **panon connectto pulseeffects**
+<h2><strong>Panon Connect To PulseEffects</strong></h2>
 
 <hr></hr>
-- [x] inject script on startup linux system, auto open pulseeffects on the first session in user selection, auto switch source audio on panon extension.
 
-  Binaries depends
-    - pacmd
-    - pulseeffects
-    - pulseaudio
-    - panon
 
-  How to install
+<ul>
+<li><p><input type="checkbox" checked> inject script on startup linux system, auto open pulseeffects on the first session in user selection, auto switch source audio on panon extension.</p>
 
-    - wanna by install on system
+<p>Binaries depends</p>
 
-             `sudo bash install.sh`
+<ul>
+<li>pacmd</li>
+<li>pulseeffects</li>
+<li>pulseaudio</li>
+<li>panon</li>
+</ul>
 
-    - only on local user
 
-             `bash install`
+<p>How to install</p>
+
+<ul>
+<li><p>wanna by install on system</p>
+
+<pre><code>   sudo bash install.sh
+</code></pre></li>
+<li><p>only on local user</p>
+
+<pre><code>   bash install
+</code></pre></li>
+</ul>
+</li>
+</ul>
 
