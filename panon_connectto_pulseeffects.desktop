@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=panon connect to pulseeffects
+Name[en_US]=panon connect to pulseeffects
+Comment=panon connect to pulseeffects
+Comment[en_US]=panon connect to pulseeffects
+Exec=panon_connectto_pulseeffects.sh
+TryExec=panon_connectto_pulseeffects.sh
+Hidden=false
+NoDisplay=false
+Terminal=false
+StartupWMClass=pulseeffects
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=2
