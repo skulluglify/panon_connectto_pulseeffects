@@ -28,7 +28,7 @@ while true; do
         if [ $PULSE_ACTIVATE -eq 0 -o -z "$(pgrep pulseeffects)" ]; then
             PULSE_ACTIVATE=1 && pulseeffects &
         fi
-        sleep 2
+        # sleep 2
         ERROR_MESSAGE=`pacmd move-source-output $PANON_INDEX PulseEffects_apps.monitor`
         if [ -z "$(echo $ERROR_MESSAGE | grep -Eiv '(failed to parse|no source found by this name or) index')" ]; then
             break
