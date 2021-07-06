@@ -40,7 +40,7 @@ function main () {
         PANON_INDEX=$(get_panon_index)
 
         if [ "$PANON_INDEX" ]; then
-            if [ $PULSE_EFFECTS_ACTIVATE -eq 0 -a -z "$(pgrep pulseeffects)" ]; then
+            if [ $PULSE_EFFECTS_ACTIVATE -eq 0 -o -z "$(pgrep pulseeffects)" ]; then
                 PULSE_EFFECTS_ACTIVATE=1 && pulseeffects &
                 echo "OPEN PulseEffects"
             fi
