@@ -24,10 +24,12 @@ function check_panon_connected_to_pulseeffects () {
     echo `pacmd list-source-outputs | grep -iB18 'application.name = "panon"' | head -n 5 | tail -n 1 | rev | awk '{print $1}' | rev | grep -i 'pulseeffects_apps.monitor'`
 }
 
+##? GLOBAL_VARIABLES
+PULSE_EFFECTS_ACTIVATE=0
+
 function main () {
 
     MAX_TIMEOUT=20
-    PULSE_ACTIVATE=0
 
     while true; do
 
@@ -38,8 +40,9 @@ function main () {
         PANON_INDEX=$(get_panon_index)
 
         if [ "$PANON_INDEX" ]; then
-            if [ $PULSE_ACTIVATE -eq 0 -o -z "$(pgrep pulseeffects)" ]; then
-                PULSE_ACTIVATE=1 && pulseeffects &
+            if [ $PULSE_EFFECTS_ACTIVATE -eq 0 -a -z "$(pgrep pulseeffects)" ]; then
+                PULSE_EFFECTS_ACTIVATE=1 && pulseeffects &
+                echo "OPEN PulseEffects"
             fi
             # sleep 2
             ERROR_MESSAGE=`pacmd move-source-output $PANON_INDEX PulseEffects_apps.monitor`
