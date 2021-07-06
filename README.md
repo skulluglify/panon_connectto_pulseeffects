@@ -25,7 +25,7 @@
 </code></pre></li>
 <li><p>only installed on user</p>
 
-<pre><code>   bash install
+<pre><code>   bash install.sh
 </code></pre></li>
 </ul>
 </li>
