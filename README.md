@@ -4,7 +4,7 @@
 
 
 <ul>
-<li><p><input type="checkbox" checked> inject script on startup linux system, auto open pulseeffects on the first session in user selection, auto switch source audio on panon extension.</p>
+<li><p><input type="checkbox" checked> Script Inject on the Linux Startup System, Auto Open Pulseffects in the First Session in User Selection, Auto Switch Source Audio on the Panon Extension.</p>
 
 <p>Binaries depends</p>
 
@@ -19,11 +19,11 @@
 <p>How to install</p>
 
 <ul>
-<li><p>wanna by install on system</p>
+<li><p>wanna be installed on system</p>
 
 <pre><code>   sudo bash install.sh
 </code></pre></li>
-<li><p>only on local user</p>
+<li><p>only installed on user</p>
 
 <pre><code>   bash install
 </code></pre></li>
