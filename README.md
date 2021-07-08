@@ -4,7 +4,7 @@
 
 
 <ul>
-<li><p><input type="checkbox" checked> Script Inject on the Linux Startup System, Auto Open Pulseffects in the First Session in User Selection, Auto Switch Source Audio on the Panon Extension.</p>
+<li><p><input type="checkbox" checked> Script Inject on the Linux Startup System, Auto Open PulseEffects in the First Session in User Selection, Auto Switch Audio Source on the Panon Extension.</p>
 
 <p>Binaries depends</p>
 
