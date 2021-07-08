@@ -18,10 +18,12 @@ check_binaries pulseaudio
 echo "STARTED INJECTION ..." | tee $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
 
 ##? DAEMONIZE SUPPORT  
-if [ "$(systemctl --user status panon_connectto_pulseeffects.service | tail -n 1 | grep -i 'active: inactive (dead)')" ]; then
-    ##? DEBUG LOG 
-    echo "RESTART DAEMONIZE ..." | tee $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
-    systemctl --user restart panon_connectto_pulseeffects
+if [ "$(systemctl --user list-units | grep -i 'panon_connectto_pulseeffects')" ]; then
+    if [ "$(systemctl --user status panon_connectto_pulseeffects.service | tail -n 1 | grep -i 'active: inactive (dead)')" ]; then
+        ##? DEBUG LOG 
+        echo "RESTART DAEMONIZE SERVICE" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
+        systemctl --user restart panon_connectto_pulseeffects
+    fi
 fi
 
 function get_panon_index () {
