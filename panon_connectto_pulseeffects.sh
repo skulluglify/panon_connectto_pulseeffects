@@ -18,7 +18,7 @@ check_binaries pulseaudio
 echo "STARTED INJECTION ..." | tee $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
 
 ##? DAEMONIZE SUPPORT  
-if [ "$(systemctl --user list-units | grep -i 'panon_connectto_pulseeffects')" ]; then
+if [ "$(systemctl --user list-unit-files | grep -i 'panon_connectto_pulseeffects')" ]; then
     if [ "$(systemctl --user status panon_connectto_pulseeffects.service | tail -n 1 | grep -i 'active: inactive (dead)')" ]; then
         ##? DEBUG LOG 
         echo "RESTART DAEMONIZE SERVICE" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
