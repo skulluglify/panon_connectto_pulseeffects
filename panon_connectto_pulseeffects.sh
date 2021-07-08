@@ -19,7 +19,7 @@ echo "STARTED INJECTION ..." | tee $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
 
 ##? DAEMONIZE SUPPORT  
 if [ "$(systemctl --user list-unit-files | grep -i 'panon_connectto_pulseeffects')" ]; then
-    if [ "$(systemctl --user status panon_connectto_pulseeffects.service | tail -n 1 | grep -i 'active: inactive (dead)')" ]; then
+    if [ "$(systemctl --user status panon_connectto_pulseeffects.service | head -n 3 | tail -n 1 | grep -i 'active: inactive (dead)')" ]; then
         ##? DEBUG LOG 
         echo "RESTART DAEMONIZE SERVICE" | tee -a $HOME/.Panon_ConnectTo_PulseEffects_Debug.txt
         systemctl --user restart panon_connectto_pulseeffects
