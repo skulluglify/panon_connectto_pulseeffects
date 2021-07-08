@@ -1,0 +1,5 @@
+re-write desktop shortcut PulseEffects to enable run panon_connectto_pulseeffects.sh
+mkdir -p .local/bin
+set .local/bin on default pathern /etc/bash.bashrc .zshrc
+re-write source code convert to python
+added some features
