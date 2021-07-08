@@ -1,0 +1,10 @@
+[Unit]
+Description=Always Activate PulseEffects
+
+[Service]
+Type=simple
+StandardOutput=null
+ExecStart=
+
+[Install]
+WantedBy=default.target
