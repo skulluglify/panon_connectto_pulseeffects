@@ -9,9 +9,14 @@ function check_binaries () {
     fi
 }
 
+check_binaries grep
 check_binaries pacmd
+check_binaries pgrep
 check_binaries pulseeffects
 check_binaries pulseaudio
+check_binaries sleep
+check_binaries systemctl
+check_binaries tee
 ##? .local/share/plasma/plasmoids/panon
 
 ##? DEBUG LOG 

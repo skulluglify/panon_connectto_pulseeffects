@@ -9,7 +9,9 @@ function check_binaries () {
     fi
 }
 
+check_binaries pgrep
 check_binaries panon_connectto_pulseeffects.sh
+check_binaries sleep
 
 ##? demonize, always activate pulseeffects
 while true; do
